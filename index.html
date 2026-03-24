@@ -35,6 +35,62 @@
   </div>
 </div>
 
+  <!-- =======================
+     THEORY SECTION
+======================= -->
+<div class="theory-section">
+  <h2>📘 Understanding File Upload Vulnerabilities</h2>
+
+  <p>
+    File upload functionality is common in modern web applications, but it also introduces 
+    significant security risks. When a system allows users to upload files, attackers may try 
+    to exploit weak validation rules to upload <strong>malicious files</strong> such as scripts, 
+    executables, or disguised payloads.
+  </p>
+
+  <h3>🔍 Why File Uploads Are Dangerous</h3>
+  <ul>
+    <li><strong>Remote Code Execution:</strong> If a server accepts files like <code>.php</code>, 
+        <code>.asp</code>, or <code>.jsp</code>, an attacker could upload executable code that the 
+        server may run.</li>
+    <li><strong>Web Shells:</strong> A malicious file may allow an attacker to take control of the 
+        server, browse directories, or execute commands remotely.</li>
+    <li><strong>Bypassing Filters:</strong> Weak validation (e.g., only checking the file extension) 
+        can be bypassed using tricks like double extensions (<code>image.php.jpg</code>).</li>
+    <li><strong>Polyglot Files:</strong> Some files can behave as multiple formats at once 
+        (e.g., an image and a script), fooling basic checks.</li>
+    <li><strong>Denial of Service:</strong> Large file uploads or crafted payloads may consume 
+        system resources and cause crashes.</li>
+  </ul>
+
+  <h3>🛠 Common Attacker Techniques</h3>
+  <ul>
+    <li><strong>Double Extensions</strong> – e.g., <code>shell.php.jpg</code></li>
+    <li><strong>MIME Type Spoofing</strong> – sending a fake content‑type header</li>
+    <li><strong>Image Polyglots</strong> – valid images that contain hidden executable data</li>
+    <li><strong>Null Byte Injection</strong> – appending <code>%00</code> to confuse old file parsers</li>
+    <li><strong>Filename Tricks</strong> – Unicode characters or long filenames to bypass filters</li>
+  </ul>
+
+  <h3>🛡 Best Practices for Secure File Uploads</h3>
+  <ul>
+    <li><strong>Whitelist extensions</strong> (accept only known safe types)</li>
+    <li><strong>Validate MIME type server‑side</strong> using a trusted library</li>
+    <li><strong>Store uploads outside the web root</strong> to prevent execution</li>
+    <li><strong>Rename files</strong> instead of keeping user‑supplied names</li>
+    <li><strong>Check file signatures</strong> (magic bytes) instead of relying on extensions</li>
+    <li><strong>Limit upload size</strong> to prevent DoS attacks</li>
+    <li><strong>Scan files</strong> using antivirus where possible</li>
+  </ul>
+
+  <div class="theory-tip">
+    💡 <strong>Remember:</strong> Client‑side checks (like JavaScript) are easy to bypass.  
+    Real vulnerability prevention must happen on the <strong>server side</strong>.
+  </div>
+</div>
+
+
+
 
 </body>
 </html>
