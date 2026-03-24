@@ -68,3 +68,48 @@ button:hover {
   margin-bottom: 5px;
   color: #a0ff9c;
 }
+
+
+/* Theory Section Styling */
+.theory-section {
+  background: #1b1b2e;
+  padding: 25px;
+  margin: 40px auto;
+  border-radius: 10px;
+  border: 1px solid #333;
+  max-width: 800px;
+  color: #ddd;
+}
+
+.theory-section h2 {
+  color: #76c7ff;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.theory-section h3 {
+  color: #9ad3ff;
+  margin-top: 20px;
+}
+
+.theory-section ul {
+  margin-left: 20px;
+  line-height: 1.6;
+}
+
+.theory-section code {
+  background: #2b2b40;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #a3eaff;
+}
+
+.theory-tip {
+  background: #0f0f20;
+  border-left: 4px solid #76c7ff;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 5px;
+  color: #cfe8ff;
+  font-size: 1.05em;
+}
