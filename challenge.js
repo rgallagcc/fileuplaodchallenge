@@ -24,6 +24,7 @@ function simulateUpload() {
     result.innerHTML = `
       ❌ Upload blocked.<br>
       Blocked extension detected: <code>.${ext}</code>
+      There seems to be a way around , perhaps a disguise?
     `;
     return;
   }
