@@ -1,26 +1,32 @@
-# File Upload Security Challenge (Safe Simulation)
+# File Upload Security Challenge — Interactive Version
 
-This GitHub Pages-based challenge teaches how insecure uploaders
-*appear* to work. No real uploads occur, and no code is executed.
+This is a safe, simulated vulnerable file upload environment used for cybersecurity teaching.  
+All processing happens client-side; nothing is executed and no uploads are stored.
 
-## Student Tasks
+## 🎮 Challenge Rules
 
-1. Analyse the blacklist-based extension filtering.
-2. Identify common bypass techniques that *would* work on a real server:
-   - double extensions (e.g., shell.php.jpg)
-   - filename tricks
-   - MIME spoofing
-   - polyglot files
-3. Explain why client-side validation cannot be trusted.
-4. Propose a secure upload architecture:
-   - whitelist extensions
-   - validate MIME using server-side libraries
-   - verify file signatures
-   - store outside webroot
-   - randomise file names
-   - restrict execution permissions
+Upload different files to trigger simulated validation behaviours.
 
-## Notes
+## 🏁 Flags
 
-- GitHub Pages cannot host real upload backends.
-- This is a simulation designed for instruction only.
+You earn flags by:
+
+- **FLAG-01** — Uploading a non-image file  
+- **FLAG-02** — Triggering blacklist-based extension blocking  
+- **FLAG-03** — Attempting a double extension (e.g., `shell.php.jpg`)  
+- **FLAG-04** — Successfully uploading a valid image  
+
+Each flag awards points. Your total score appears on-screen.
+
+## 📚 Learning Objectives
+
+Students will:
+
+- Understand why file uploads are dangerous
+- Analyse weak validation (blacklists, MIME trust)
+- Test bypass strategies safely
+- Reflect on secure design patterns
+
+## 🚀 Hosting
+
+Push to GitHub → Settings → Pages → Deploy branch → Open URL.
