@@ -1,9 +1,9 @@
 function simulateUpload() {
   const file = document.getElementById("fileInput").files[0];
-  const out = document.getElementById("output");
+  const result = document.getElementById("result");
 
   if (!file) {
-    out.innerHTML = "⚠️ No file chosen.";
+    result.innerHTML = "⚠️ No file selected.";
     return;
   }
 
@@ -12,31 +12,40 @@ function simulateUpload() {
 
   const blacklist = ["php", "phtml", "php5", "phar", "jsp", "asp", "aspx"];
 
+  // Flag: double extension
+  if (filename.includes(".php.") || filename.match(/\.(php|asp|jsp)\.[a-z0-9]+$/)) {
+    awardFlag("doubleExt");
+  }
+
+  // Blocked executable extensions
   if (blacklist.includes(ext)) {
-    out.innerHTML = `
-      ❌ Upload rejected.<br>
+    awardFlag("blockedExt");
+
+    result.innerHTML = `
+      ❌ Upload blocked.<br>
       Blocked extension detected: <code>.${ext}</code>
     `;
     return;
   }
 
+  // Non-image file
   if (!file.type.startsWith("image/")) {
-    out.innerHTML = `
+    awardFlag("nonImage");
+
+    result.innerHTML = `
       ⚠️ Suspicious MIME type: <code>${file.type}</code><br>
-      This system attempts to accept only images.
+      Only images are allowed.
     `;
     return;
   }
 
-  out.innerHTML = `
-    ✅ File “accepted” (simulation only)<br>
+  // Valid image file
+  awardFlag("legitImage");
+
+  result.innerHTML = `
+    ✅ Valid image accepted (simulation only).<br>
     <strong>Filename:</strong> ${filename}<br>
     <strong>MIME:</strong> ${file.type}<br><br>
-
-    🔍 <strong>Now analyse the filters!</strong><br>
-    - What bypasses might work?<br>
-    - What assumptions does this system make?<br>
-    - How could a real attacker exploit this?<br>
-    - How would you fix it securely?
+    🎯 Try to trigger all flags!
   `;
 }
