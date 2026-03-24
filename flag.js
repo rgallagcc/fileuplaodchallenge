@@ -1,3 +1,5 @@
+console.log("flags.js loaded!");
+
 // Flags storage and scoring
 const FLAGS = {
   nonImage:       { id: "FLAG-01", points: 10, earned: false, hint: "Uploaded a non-image file." },
